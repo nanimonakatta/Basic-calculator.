@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Basic Calculator</title>
+   <meta http-equiv="x-ua-compatible" content="ie=edge">
+   <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+   <main>
+      <div>
+         <p class="result"></p>
+         <p>
+            <button onclick="calculation ++; finalValue();">1</button>
+            <button onclick="calculation += 2; finalValue();">2</button>
+            <button onclick="calculation += 3; finalValue();">3</button>
+            <button onclick="calculation += '+'; finalValue();" ondblclick="alert('Please choose a number!');">+</button>
+         </p>
+         <p>
+            <button onclick="calculation += 4; finalValue();">4</button>
+            <button onclick="calculation += 5; finalValue();">5</button>
+            <button onclick="calculation += 6; finalValue();">6</button>
+            <button onclick="calculation += '-'; finalValue();" ondblclick="alert('Please choose a number!');">-</button>
+         </p>
+         <p>
+            <button onclick="calculation += 7; finalValue();">7</button>
+            <button onclick="calculation += 8; finalValue();">8</button>
+            <button onclick="calculation += 9; finalValue();">9</button>
+            <button onclick="calculation += '*'; finalValue();" ondblclick="alert('Please choose a number!');">*</button>
+         </p>
+         <p>
+            <button ondblclick="calculation =''; finalValue();">Clear</button>
+            <button onclick="calculation += 0; finalValue();">0</button>
+            <button onclick="calculation = eval(calculation);  finalValue(); calculation = '';">=</button>
+            <button onclick="calculation += '/';" ondblclick="alert('Please choose a number!');">/</button>
+         </p>
+      </div>
+   </main>
+   <script>
+      alert('The calculator is not complete yet, It has some issues. It is just for simple calculations.');
+      let calculation = '';
+      const result = document.querySelector('.result');
+      function finalValue() {
+         result.textContent = calculation
+      }
+   </script>
+</body>
+</html>

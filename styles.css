@@ -1,0 +1,68 @@
+*,
+*::after, 
+*::before {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   user-select: none;
+   line-height: calc(1em + 0.5rem);
+}
+
+main {
+   min-height: 100vh;
+   place-content: center;
+   text-align: center;
+}
+
+main::before {
+   position:absolute;
+   inset: 0;
+   content: "";
+   background: url(wall\ \(8\).jpeg) no-repeat center;
+   background-size: cover; 
+   filter: blur(70px) brightness(60%);   
+}
+
+main::after {
+   position:absolute;
+   inset: 0;
+   content: "";
+   background: linear-gradient(135deg, white 30%, black);
+   mix-blend-mode: overlay;
+}
+
+main div {
+   position: relative;
+   width: fit-content;
+   margin: auto;
+   border: 1px solid black;
+   background: linear-gradient(135deg, whitesmoke, gray);
+   filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.788));
+   z-index: 5;
+}
+
+.result, button {
+   filter: drop-shadow(2px 2px 1px black);
+   background: linear-gradient(135deg, rgba(245, 245, 245, 0.908) 60%, rgba(128, 128, 128, 0.889));
+}
+
+.result {
+   margin: 0.2em ;
+   height: 50px;
+   background-color: whitesmoke;
+   border: 1px solid gray;
+   place-content: center;
+   text-align: right;
+   font-size: 2rem;
+   font-weight: 900;
+   padding: 0 0.2em;
+}
+
+p button {
+   width: calc(280px / 4);
+   height: 50px;
+   font-weight: 900;
+   margin: 0.2em;
+   font-size: 1.1rem;
+   cursor: pointer;
+}
