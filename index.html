@@ -3,46 +3,66 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Basic Calculator</title>
+   <title>Calculator</title>
    <meta http-equiv="x-ua-compatible" content="ie=edge">
    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
    <main>
-      <div>
-         <p class="result"></p>
-         <p>
-            <button onclick="calculation ++; finalValue();">1</button>
-            <button onclick="calculation += 2; finalValue();">2</button>
-            <button onclick="calculation += 3; finalValue();">3</button>
-            <button onclick="calculation += '+'; finalValue();" ondblclick="alert('Please choose a number!');">+</button>
-         </p>
-         <p>
-            <button onclick="calculation += 4; finalValue();">4</button>
-            <button onclick="calculation += 5; finalValue();">5</button>
-            <button onclick="calculation += 6; finalValue();">6</button>
-            <button onclick="calculation += '-'; finalValue();" ondblclick="alert('Please choose a number!');">-</button>
-         </p>
-         <p>
-            <button onclick="calculation += 7; finalValue();">7</button>
-            <button onclick="calculation += 8; finalValue();">8</button>
-            <button onclick="calculation += 9; finalValue();">9</button>
-            <button onclick="calculation += '*'; finalValue();" ondblclick="alert('Please choose a number!');">*</button>
-         </p>
-         <p>
-            <button title="Click to clear!" onclick="calculation =''; finalValue();">Clear</button>
-            <button onclick="calculation += 0; finalValue();">0</button>
-            <button onclick="calculation = eval(calculation);  finalValue(); calculation = '';">=</button>
-            <button onclick="calculation += '/';" ondblclick="alert('Please choose a number!');">/</button>
-         </p>
-      </div>
-   </main>
+   <div>
+      <p class="theValue"></p>
+      <p>
+         <button onclick="add('1');">1</button>
+         <button onclick="add('2');">2</button>
+         <button onclick="add('3');">3</button>
+      </p>
+      <p>
+         <button onclick="add('4');">4</button>
+         <button onclick="add('5');">5</button>
+         <button onclick="add('6');">6</button>
+      </p>
+      <p>
+         <button onclick="add('7');">7</button>
+         <button onclick="add('8');">8</button>
+         <button onclick="add('9');">9</button>
+      </p>
+      <p>
+         <button onclick="add('0');">0</button>
+         <button onclick="add('.');">.</button>
+         <button onclick="add('/');">/</button>
+      </p>
+      <p>
+         <button onclick="add('+');">+</button>
+         <button onclick="add('-');">-</button>
+         <button onclick="add('*');">*</button>
+      </p>
+      <p>
+         <button class="clear" onclick="
+            calculation = ''; displayCalculation(); localStorage.clear();
+            ">Clear
+         </button>
+         <button onclick="
+            calculation = eval(calculation);
+            localStorage.setItem('Value', JSON.stringify(calculation));
+            displayCalculation();
+            calculation = '';
+         ">=</button>
+      </p>
+
+   </div>
+</main>
    <script>
-      alert('The calculator is not complete yet, It has some issues. It is just for simple calculations.');
-      let calculation = '';
-      const result = document.querySelector('.result');
-      function finalValue() {
-         result.textContent = calculation
+      let calculation = JSON.parse(localStorage.getItem('Value')) || 
+      '';
+      let theValue = document.querySelector('.theValue');
+      theValue.innerHTML = calculation;
+      function add(value) {
+         calculation += value;
+         theValue.innerHTML = calculation;
+      }
+
+      function displayCalculation() {
+         theValue.innerHTML = calculation;
       }
    </script>
 </body>
