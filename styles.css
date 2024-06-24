@@ -1,68 +1,96 @@
-*,
-*::after, 
-*::before {
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Outfit:wght@100..900&display=swap');
+/* font-family: "Outfit", sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+/* font-family: "Montserrat", sans-serif; */
+
+body {
    margin: 0;
-   padding: 0;
-   box-sizing: border-box;
-   user-select: none;
-   line-height: calc(1em + 0.5rem);
+   font-family: "Outfit", sans-serif;
+   background: rgb(32, 32, 32);
 }
 
 main {
-   min-height: 100vh;
+   margin: 0;
    place-content: center;
-   text-align: center;
+   min-height: 100svh;
+   user-select: none;
+   position: relative;
+   overflow: hidden;
 }
 
 main::before {
-   position:absolute;
+   position: absolute;
    inset: 0;
-   content: "";
-   background: url(wall\ \(8\).jpeg) no-repeat center;
-   background-size: cover; 
-   filter: blur(70px) brightness(60%);   
-}
-
-main::after {
-   position:absolute;
-   inset: 0;
-   content: "";
-   background: linear-gradient(135deg, white 30%, black);
-   mix-blend-mode: overlay;
+   content: "CALCULATOR";
+   z-index: -1;
+   font-size: 9rem;
+   font-weight: 900;
+   font-family: "Montserrat", sans-serif;
+   -webkit-text-stroke: 1px rgb(145, 145, 145);
+   -webkit-text-fill-color: transparent;
+   top: 50vh;
+   left: 10vw;
 }
 
 main div {
-   position: relative;
-   width: fit-content;
+   border-radius: 10px;
    margin: auto;
-   border: 1px solid black;
-   background: linear-gradient(135deg, whitesmoke, gray);
-   filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.788));
-   z-index: 5;
+   width: 300px;
+   border: 1px solid rgb(255, 255, 255);
+   padding: 1rem;
+   box-shadow: 2px 2px 2px black;
 }
 
-.result, button {
-   filter: drop-shadow(2px 2px 1px black);
-   background: linear-gradient(135deg, rgba(245, 245, 245, 0.908) 60%, rgba(128, 128, 128, 0.889));
+div p {
+   margin: 0.5em 0;
 }
 
-.result {
-   margin: 0.2em ;
+div p button {
+   width: calc(100px - 0.2em);
    height: 50px;
-   background-color: whitesmoke;
-   border: 1px solid gray;
    place-content: center;
-   text-align: right;
-   font-size: 2rem;
+   text-align: center;
    font-weight: 900;
-   padding: 0 0.2em;
+   cursor: pointer;
+   background-color: rgb(255, 54, 54);
+   border: none;
+   color: white;
+   text-transform: uppercase;
+   border-radius: 10px;
+   box-shadow: 2px 2px 2px black;
 }
 
-p button {
-   width: calc(280px / 4);
-   height: 50px;
+.theValue {
+   border-radius: 10px;
+   text-align: right;
+   margin: 0;
+   border: 1px solid rgb(255, 255, 255);
+   padding: 0.3em;
+   overflow: hidden;
+   height: 30px;
+   color: white;
    font-weight: 900;
-   margin: 0.2em;
-   font-size: 1.1rem;
-   cursor: pointer;
+   place-content: center;
+   padding: 0.3em;
+}
+
+.clear {
+   width: calc(66.67% - 0.1rem);
+   background-color: white;
+   color: black;
+}
+
+p:last-child {
+   margin: 0;
+}
+
+p:last-child button:last-child {
+   background-color: rgb(255, 255, 255);
+   color: black;
+}
+
+@media screen and (max-width:768px) {
+   main::before {
+      display: none;
+   }
 }
